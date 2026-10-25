@@ -1,0 +1,29 @@
+generated: '2026-10-24'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://docs.phone.inc/api/authentication.md
+sources:
+- https://docs.phone.inc/api/authentication.md
+- https://docs.phone.inc/api/oauth.md
+- https://docs.phone.inc/api/authentication
+- https://docs.phone.inc/api/oauth
+description: Authentication schemes for Phone.inc API
+schemes:
+- type: apiKey
+  name: API Key (header)
+  evidence: 'Send the token on every request to `/api/v1/*`. We accept three methods, in priority order: **X-Api-Key header** (`recommended`):
+    `X-Api-Key: phk_...` — explicit and unambiguous.'
+  location: header
+  header: X-Api-Key
+  how_to_obtain: Generate one in the dashboard at https://app.phone.inc/api_keys.
+- type: oauth2
+  name: Phone.inc OAuth
+  evidence: 'We support a single grant type: **authorization code with PKCE**. It works for native apps, single-page apps, and traditional server-side
+    web apps.'
+  token_url: https://app.phone.inc/oauth/token
+  authorize_url: https://app.phone.inc/oauth/authorize
+  scopes:
+  - api
+  how_to_obtain: Register an OAuth client via dynamic client registration at https://app.phone.inc/oauth/register.
+docs: https://docs.phone.inc/api/authentication.md
+note: 2 extracted row(s) were dropped because their quote was not on the page.

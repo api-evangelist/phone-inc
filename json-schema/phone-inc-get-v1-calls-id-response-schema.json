@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/phone-inc/main/json-schema/phone-inc-get-v1-calls-id-response-schema.json",
+  "title": "GetV1CallsIdResponse",
+  "x-generated": "2026-10-24",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/GetV1CallsIdResponse",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "to": {
+      "type": "string"
+    },
+    "direction": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "started_at": {
+      "type": "string"
+    },
+    "answered_at": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "integer"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "transcription": {
+      "type": "string"
+    },
+    "transcription_segments": {
+      "type": "array"
+    },
+    "recording_url": {
+      "type": "string"
+    },
+    "business_number_id": {
+      "type": "string"
+    },
+    "business_number_name": {
+      "type": "string"
+    },
+    "business_number": {
+      "type": "string"
+    },
+    "business_number_formatted": {
+      "type": "string"
+    },
+    "transfers": {
+      "type": "array"
+    },
+    "employees": {
+      "type": "array"
+    }
+  }
+}

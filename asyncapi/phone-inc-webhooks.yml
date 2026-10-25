@@ -1,0 +1,66 @@
+generated: '2026-10-24'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://docs.phone.inc/api/webhooks.md
+sources:
+- https://docs.phone.inc/api/webhooks.md
+- https://docs.phone.inc/api/webhooks
+description: 'Phone.inc webhooks deliver JSON POSTs to a registered HTTPS endpoint. Deliveries include a Content-Type: application/json header
+  and a User-Agent: PhoneInc-Webhooks/1.0 header. No signature header is used; security relies on HTTPS. If the endpoint does not return a 2xx
+  status code, Phone.inc will retry up to 5 times with exponential backoff.'
+events:
+- event: call.initiated
+  description: A new inbound or outbound call has started. The call exists but hasn't been answered yet.
+- event: call.outside_business_hours
+  description: An inbound call arrived outside the business number's configured business hours. Existing `call.outside_opening_hours` subscriptions
+    are migrated to this name, and payloads now use `call.outside_business_hours`.
+- event: call.queued
+  description: The caller joined the employee wait queue. The payload is the existing call envelope; `state` is `queued` and `answered_at` is
+    still null. Fires once per call.
+- event: call.answered
+  description: The call was answered by an employee. `answered_at` is now set on the call, and `employees` includes the employee who answered.
+- event: call.ended
+  description: The call has ended, regardless of outcome. Fires for every call that reaches the `ended` state — answered, missed, or rejected.
+- event: call.lost
+  description: The call ended without being answered and without a spoken voicemail message. This includes recordings containing only silence
+    or sound effects. Discarding a sound‑only recording emits this event unless it was already emitted for the call.
+- event: call.transcription_done
+  description: The call recording has been transcribed. The `transcription` and `transcription_segments` fields are now populated on the call.
+    The summary is generated afterwards, so do not rely on `summary` being populated in this event. Subscribe to `call.summary_done` to receive
+    it.
+- event: call.summary_done
+  description: The AI summary of the call has been saved. The payload includes `summary`, `transcription`, and `transcription_segments`. Dispatched
+    after `call.transcription_done`, but webhook deliveries may arrive out of order. Not sent when the call has too little conversation to summarize,
+    contains no meaningful content, or its transcription was deleted during summary generation.
+- event: call.data_deleted
+  description: Call content or a recording was deleted. `data.deleted` lists `transcription`, `recording`, or both. Deleting transcription data
+    also deletes the summary, stored caller context, and whisper brief, even if no transcript exists. `data.reason` is `retention_policy` for
+    scheduled deletion, `keep_disabled` when temporary audio is removed after transcription, or `manual` when an employee deletes call data.
+- event: voicemail.new
+  description: A new voicemail was recorded and confirmed to contain spoken words. Fires after transcription, not immediately after the recording
+    upload. The payload includes both the call and voicemail data, including the transcription.
+- event: voicemail.transcription_done
+  description: The voicemail recording has been transcribed. The payload's `voicemail` object now has its `transcription` field populated.
+- event: voicemail.data_deleted
+  description: A voicemail transcription or recording was manually deleted. `data.deleted` lists `transcription`, `recording`, or both, and `data.reason`
+    is `manual`.
+- event: contact.created
+  description: A new contact was added to your address book. The payload's `data.contact` object includes the full contact model.
+- event: contact.updated
+  description: An existing contact was edited. The payload's `data.contact` object includes the new values.
+- event: contact.deleted
+  description: A contact was removed. The payload's `data.contact` object reflects the contact at the time of deletion.
+- event: employee.status.changed
+  description: An employee's live presence changed (for example from `available` to `on_call`, or when they enable/disable do‑not‑disturb). The
+    payload's `data.employee` object matches the employee model, including `status`, `do_not_disturb`, `do_not_disturb_activated_at`, and `do_not_disturb_expires_at`.
+    It also has a `call_id` indicating the call the employee is ringing for or on.
+- event: number.registration_approved
+  description: A business number's regulatory registration was approved by the carrier. The payload's `business_number` includes `id`, `number`,
+    and `registration_status`.
+- event: number.registration_rejected
+  description: A business number's regulatory registration was rejected. The payload's `business_number` includes `id`, `number`, and `registration_status`.
+    A sibling `reason` string explains the rejection.
+delivery:
+  content_type: application/json
+note: No signature header is described; security relies on HTTPS and the User-Agent header.
+docs: https://docs.phone.inc/api/webhooks.md

@@ -1,0 +1,21 @@
+generated: '2026-10-24'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://www.phone.inc/pricing
+sources:
+- https://www.phone.inc/pricing
+name: Phone Inc pricing
+audience: business-product
+pricing_basis: per-seat
+plans:
+- name: Free
+  price_text: $0 /month
+  price: 0
+  description: A real business number for one person, sounding professional from the first ring. One business number, unlimited inbound calls,
+    business hours, welcome messages, and all number settings. Outbound calls not included.
+- name: Pro
+  price_text: $14 /month
+  price: 14
+  description: Everything in Free plus outbound calls, 10 hours of local calls included, multiple business numbers, all AI features (receptionist,
+    reminders, whisper, etc.). $14/month per employee.
+docs: https://www.phone.inc/pricing

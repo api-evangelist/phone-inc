@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/phone-inc/main/json-schema/phone-inc-get-api-v1-calls0193-f4-ba12347-c009-e3-d2-b2-b8-a7-f1-c11-response-schema.json",
+  "title": "GetApiV1Calls0193F4Ba12347C009E3D2B2B8A7F1C11Response",
+  "x-generated": "2026-10-24",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/GetApiV1Calls0193F4Ba12347C009E3D2B2B8A7F1C11Response",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "to": {
+      "type": "string"
+    },
+    "direction": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "started_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "answered_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "duration": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "summary": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "transcription": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "transcription_segments": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "recording_url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "business_number_id": {
+      "type": "string"
+    },
+    "business_number_name": {
+      "type": "string"
+    },
+    "business_number": {
+      "type": "string"
+    },
+    "business_number_formatted": {
+      "type": "string"
+    },
+    "transfers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "from_employee": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "first_name": {
+                "type": "string"
+              },
+              "last_name": {
+                "type": "string"
+              }
+            }
+          },
+          "to_employee": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "first_name": {
+                "type": "string"
+              },
+              "last_name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "employees": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "first_name": {
+            "type": "string"
+          },
+          "last_name": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

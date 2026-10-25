@@ -1,0 +1,21 @@
+generated: '2026-10-24'
+method: probed
+source:
+  - https://www.phone.inc/privacy
+signals:
+  subprocessors:
+    url: https://www.phone.inc/privacy
+    note: Lists sub‑processors used for data processing.
+    evidence:
+      - source: https://www.phone.inc/privacy
+        http_status: 200
+        fetched: "true"
+        quote: "The companies we engage to help process that data, such as our infrastructure, telephony, and AI providers, are our sub‑processors."
+  ai_transparency:
+    url: https://www.phone.inc/privacy
+    note: Declares that AI is not trained on user data.
+    evidence:
+      - source: https://www.phone.inc/privacy
+        http_status: 200
+        fetched: "true"
+        quote: "Phone.inc uses AI to power certain features – such as call notes, transcriptions, and caller context. We do not use your call recordings, transcriptions, voicemails, or other communications content to train AI models."

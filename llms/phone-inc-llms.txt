@@ -1,0 +1,25 @@
+# Phone.inc API documentation
+
+> Developer documentation for the Phone.inc REST API.
+
+- [Phone.inc documentation](https://docs.phone.inc/index.md): Documentation for Phone.inc — connect AI assistants over MCP or build integrations with the REST API.
+- [API](https://docs.phone.inc/api.md): Build on top of Phone.inc. List business numbers, fetch calls and voicemails, and pull customer context for inbound callers from a clean REST API.
+- [Authentication](https://docs.phone.inc/api/authentication.md): Authenticate with the Phone.inc API using a personal API key. Generate one in the dashboard and send it as a Bearer token on every request.
+- [Business Numbers](https://docs.phone.inc/api/business-numbers.md): Retrieve and configure phone numbers on your Phone.inc company — routing, business hours, outside-hours behavior, and no-answer fallback.
+- [Caller context](https://docs.phone.inc/api/caller-context.md): Look up customer context for an inbound caller from your connected integrations. Returns structured sections with fields and tables from each provider.
+- [Calls](https://docs.phone.inc/api/calls.md): List, filter, and inspect calls, and run attended (warm) employee-to-employee transfers on live calls.
+- [Company](https://docs.phone.inc/api/company.md): Read and update your company profile — address, country, VAT ID, and two-factor authentication policy.
+- [Contacts](https://docs.phone.inc/api/contacts.md): Save the people who call you — or let Phone.inc create them automatically. Matching calls and voicemails show a name instead of a raw phone number.
+- [Custom Caller Context](https://docs.phone.inc/api/custom-caller-context.md): Connect any system to Phone.inc caller context by exposing a simple JSON endpoint. We call your URL on every incoming call.
+- [Departments](https://docs.phone.inc/api/departments.md): Organize employees into shared call queues and route callers to them from call flows.
+- [Employees](https://docs.phone.inc/api/employees.md): Manage the people on your Phone.inc account. Create, update, list, and remove employees who handle calls.
+- [Errors](https://docs.phone.inc/api/errors.md): How the Phone.inc API surfaces errors: status codes, response shapes, and the most common things that go wrong.
+- [Inbox](https://docs.phone.inc/api/inbox.md): Read grouped calls, voicemails, and messages, paginate phone-number activity, and update shared seen state.
+- [Integrations](https://docs.phone.inc/api/integrations.md): List configured integrations, inspect connection status, and prepare browser authorization links without exposing credentials.
+- [Link to call](https://docs.phone.inc/api/link-to-call.md): Deep-link into the Phone.inc web app and start an outbound call to any phone number with a single URL.
+- [OAuth 2.0 for partners](https://docs.phone.inc/api/oauth.md): Build a multi-tenant integration that acts on behalf of Phone.inc customers. Authorization code flow with PKCE, refresh tokens, and revocation.
+- [Quickstart](https://docs.phone.inc/api/quickstart.md): Make your first call to the Phone.inc API in five minutes. Create an API key, list your business numbers, and learn where to go next.
+- [Texting and inbox](https://docs.phone.inc/api/texting.md): Send and receive texts, read unified activity, and manage snippets and outside-hours replies.
+- [Voicemails](https://docs.phone.inc/api/voicemails.md): List voicemails left on your Phone.inc business numbers, grab the recording URL, and mark them as listened.
+- [Webhooks](https://docs.phone.inc/api/webhooks.md): Receive real-time notifications when calls, voicemails, and transcriptions happen in your Phone.inc account.
+- [MCP](https://docs.phone.inc/mcp.md): Connect Claude or Cursor to your Phone.inc account over the Model Context Protocol.

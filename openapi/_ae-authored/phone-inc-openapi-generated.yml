@@ -1,0 +1,2298 @@
+openapi: 3.1.0
+info:
+  title: Phone Inc API
+  version: '2026-10-24'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-24: 46 operation(s) read from 6 public documentation page(s) (each operation
+    names its page in x-source). This is not the provider''s published contract; Phone Inc has published no machine-readable contract that the
+    pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 15
+    documentation: 31
+    pages-with-code: 6
+    pages-read: 6
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-24'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://docs.phone.inc/api/calls
+  - https://docs.phone.inc/api/inbox
+  - https://docs.phone.inc/api/oauth
+  - https://docs.phone.inc/api/company
+  - https://docs.phone.inc/api/texting
+  - https://docs.phone.inc/api/calls.md
+servers:
+- url: https://app.phone.inc
+paths:
+  /.well-known/oauth-authorization-server:
+    get:
+      operationId: get_well_known_oauth_authorization_server
+      tags:
+      - API
+      summary: authorization, token, revoke, and registration endpoints
+      x-source: https://docs.phone.inc/api/oauth
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetWellKnownOauthAuthorizationServerResponse'
+      x-evidence:
+        kind: documentation
+  /.well-known/oauth-protected-resource:
+    get:
+      operationId: get_well_known_oauth_protected_resource
+      tags:
+      - API
+      summary: the protected resource identifier and linked authorization server
+      x-source: https://docs.phone.inc/api/oauth
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetWellKnownOauthProtectedResourceResponse'
+      x-evidence:
+        kind: documentation
+  /.well-known/oauth-protected-resource/mcp:
+    get:
+      operationId: get_well_known_oauth_protected_resource_mcp
+      tags:
+      - API
+      summary: 'the same metadata scoped to the MCP endpoint (resource: https://app.phone.inc/mcp)'
+      x-source: https://docs.phone.inc/api/oauth
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetWellKnownOauthProtectedResourceMcpResponse'
+      x-evidence:
+        kind: documentation
+  /api/v1/activity/unseen:
+    get:
+      operationId: get_api_v1_activity_unseen
+      tags:
+      - Api
+      summary: GET /api/v1/activity/unseen
+      x-source: https://docs.phone.inc/api/calls.md
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiV1ActivityUnseenResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl https://app.phone.inc/api/v1/activity/unseen  -H \"X-Api-Key: $PHONE_INC_API_KEY\"\n    ```"
+  /api/v1/business_numbers:
+    get:
+      operationId: get_api_v1_business_numbers
+      tags:
+      - Api
+      summary: Retrieve business numbers (example API call)
+      x-source: https://docs.phone.inc/api/oauth
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /api/v1/calls:
+    get:
+      operationId: get_api_v1_calls
+      tags:
+      - Api
+      summary: GET /api/v1/calls
+      x-source: https://docs.phone.inc/api/calls.md
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiV1CallsResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -G https://app.phone.inc/api/v1/calls  -H \"X-Api-Key: $PHONE_INC_API_KEY\"  -d query=\"order status\"  -d business_number_id=0193f4a9-7c34-7c00-9e3d-2b2b8a7f1c01\
+          \  -d direction=inbound  -d state=ended  -d limit=25\n    ```"
+    post:
+      operationId: post_api_v1_calls
+      tags:
+      - Api
+      summary: POST /api/v1/calls
+      x-source: https://docs.phone.inc/api/calls
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostApiV1CallsRequest'
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostApiV1CallsResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl JavaScript Python Ruby GET /v1/calls curl -G https://app.phone.inc/api/v1/calls  -H \"X-Api-Key: $PHONE_INC_API_KEY\" \
+          \ -d query= \"order status\"  -d business_number_id= 0193 f4a9-7c34-7c00-9e3d-2b2b8a7f1c01  -d direction=inbound  -d state=ended  -d\
+          \ limit= 25 \n Copy Copied! Response { \n \"calls\" : [ \n { \n \"id\" : \"0193f4ba-1234-7c00-9e3d-2b2b8a7f1c11\" , \n \"from\" : \"\
+          +14085550199\" , \n \"to\" : \"+141555"
+  /api/v1/calls/$CALL_ID/transfers:
+    post:
+      operationId: post_api_v1_calls_CALL_ID_transfers
+      tags:
+      - Api
+      summary: POST /api/v1/calls/$CALL_ID/transfers
+      x-source: https://docs.phone.inc/api/calls.md
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostApiV1CallsCallIdTransfersRequest'
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostApiV1CallsCallIdTransfersResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl https://app.phone.inc/api/v1/calls/$CALL_ID/transfers  -H \"X-Api-Key: $PHONE_INC_API_KEY\"  -H \"Content-Type: application/json\"\
+          \  -d '{\"employee_id\":\"0193f4b0-bbbb-7c00-9e3d-2b2b8a7f1c21\"}'\n    ```"
+  /api/v1/calls/$CALL_ID/transfers/$TRANSFER_ID:
+    delete:
+      operationId: delete_api_v1_calls_CALL_ID_transfers_TRANSFER_ID
+      tags:
+      - Api
+      summary: DELETE /api/v1/calls/$CALL_ID/transfers/$TRANSFER_ID
+      x-source: https://docs.phone.inc/api/calls.md
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteApiV1CallsCallIdTransfersTransferIdResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl https://app.phone.inc/api/v1/calls/$CALL_ID/transfers/$TRANSFER_ID  -X DELETE  -H \"X-Api-Key: $PHONE_INC_API_KEY\"\n \
+          \   ```"
+  /api/v1/calls/$CALL_ID/transfers/$TRANSFER_ID/completion:
+    post:
+      operationId: post_api_v1_calls_CALL_ID_transfers_TRANSFER_ID_completion
+      tags:
+      - Api
+      summary: POST /api/v1/calls/$CALL_ID/transfers/$TRANSFER_ID/completion
+      x-source: https://docs.phone.inc/api/calls.md
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostApiV1CallsCallIdTransfersTransferIdCompletionResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl https://app.phone.inc/api/v1/calls/$CALL_ID/transfers/$TRANSFER_ID/completion  -X POST  -H \"X-Api-Key: $PHONE_INC_API_KEY\"\
+          \n    ```"
+  /api/v1/calls/${callId}/transfers:
+    post:
+      operationId: post_api_v1_calls_callId_transfers
+      tags:
+      - Api
+      summary: POST /api/v1/calls/${callId}/transfers
+      x-source: https://docs.phone.inc/api/calls.md
+      parameters:
+      - name: callId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostApiV1CallsCallidTransfersResponse'
+      x-evidence:
+        kind: code-example
+        language: javascript
+        snippet: "fetch(\n      `https://app.phone.inc/api/v1/calls/${callId}/transfers`,\n      {\n        method: 'POST',\n        headers:\
+          \ {\n          'X-Api-Key': process.env.PHONE_INC_API_KEY,\n          'Content-Type': 'application/json',\n        },\n        body:\
+          \ JSON.stringify({ employee_id: employeeId })"
+  /api/v1/calls/${callId}/transfers/${transferId}/completion:
+    post:
+      operationId: post_api_v1_calls_callId_transfers_transferId_completion
+      tags:
+      - Api
+      summary: POST /api/v1/calls/${callId}/transfers/${transferId}/completion
+      x-source: https://docs.phone.inc/api/calls.md
+      parameters:
+      - name: callId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: transferId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostApiV1CallsCallidTransfersTransferidCompletionResponse'
+      x-evidence:
+        kind: code-example
+        language: javascript
+        snippet: "fetch(\n      `https://app.phone.inc/api/v1/calls/${callId}/transfers/${transferId}/completion`,\n      {\n        method: 'POST',\n\
+          \        headers: { 'X-Api-Key': process.env.PHONE_INC_API_KEY },\n      },\n    )\n\n    const {transfer} = await response.json()\n\
+          \    ```\n\n    ```python\n    import os, requests\n\n    response = requests.post(\n        f\"https://app.phone.inc/api/v1/calls/{call_id}/transfers/{tr"
+  /api/v1/calls/0193f4ba-1234-7c00-9e3d-2b2b8a7f1c11:
+    get:
+      operationId: get_api_v1_calls_0193f4ba_1234_7c00_9e3d_2b2b8a7f1c11
+      tags:
+      - Api
+      summary: GET /api/v1/calls/0193f4ba-1234-7c00-9e3d-2b2b8a7f1c11
+      x-source: https://docs.phone.inc/api/calls.md
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiV1Calls0193F4Ba12347C009E3D2B2B8A7F1C11Response'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl https://app.phone.inc/api/v1/calls/0193f4ba-1234-7c00-9e3d-2b2b8a7f1c11  -H \"X-Api-Key: $PHONE_INC_API_KEY\"\n    ```"
+  /api/v1/calls/active:
+    get:
+      operationId: get_api_v1_calls_active
+      tags:
+      - Api
+      summary: GET /api/v1/calls/active
+      x-source: https://docs.phone.inc/api/calls.md
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiV1CallsActiveResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl https://app.phone.inc/api/v1/calls/active  -H \"X-Api-Key: $PHONE_INC_API_KEY\"\n    ```"
+  /api/v1/calls/seen:
+    get:
+      operationId: get_api_v1_calls_seen
+      tags:
+      - Api
+      summary: GET /api/v1/calls/seen
+      x-source: https://docs.phone.inc/api/calls.md
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: ruby
+        snippet: URI('https://app.phone.inc/api/v1/calls/seen'
+    post:
+      operationId: post_api_v1_calls_seen
+      tags:
+      - Api
+      summary: POST /api/v1/calls/seen
+      x-source: https://docs.phone.inc/api/calls.md
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostApiV1CallsSeenRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl https://app.phone.inc/api/v1/calls/seen  -H \"X-Api-Key: $PHONE_INC_API_KEY\"  -H 'Content-Type: application/json'  -d\
+          \ '{\"business_number_id\":\"0193f4a9-7c34-7c00-9e3d-2b2b8a7f1c01\",\"phone_number\":\"+14155551234\",\"seen\":true}'\n    ```"
+  /api/v1/company:
+    patch:
+      operationId: patch_api_v1_company
+      tags:
+      - Api
+      summary: PATCH /api/v1/company
+      x-source: https://docs.phone.inc/api/company
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchApiV1CompanyRequest'
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchApiV1CompanyResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl JavaScript Python Ruby GET /v1/company curl https://app.phone.inc/api/v1/company  -H \"X-Api-Key: $PHONE_INC_API_KEY\"\
+          \ \n Copy Copied! Response { \n \"id\" : \"019daef1-085e-79ca-bb4d-7f6bf51992d2\" , \n \"name\" : \"Acme ApS\" , \n \"address\" : \"\
+          Vesterbrogade 1\" , \n \"city\" : \"Copenhagen\" , \n \"state\" : null , \n \"zip\" : \"1620\" , \n \"country\" : \"DK\" , \n \"vat_id\"\
+          \ : \"DK12345678\" , \n \"requires_two_factor\" : false"
+  /api/v1/inbox:
+    get:
+      operationId: get_api_v1_inbox
+      tags:
+      - Api
+      summary: List grouped previews with GET /api/v1/inbox
+      x-source: https://docs.phone.inc/api/texting
+      parameters:
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: defaults to 50 and is clamped to 1–100
+      - name: next_cursor
+        in: query
+        required: false
+        schema:
+          type: string
+        description: cursor to load more
+      - name: business_number_id
+        in: query
+        required: false
+        schema:
+          type: string
+        description: restricts history to that number
+      - name: query
+        in: query
+        required: false
+        schema:
+          type: string
+        description: matches contact name, company name, or phone number (up to 128 characters)
+      - name: unseen
+        in: query
+        required: false
+        schema:
+          type: boolean
+        description: returns only threads with unseen timeline items
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiV1InboxResponse'
+      x-evidence:
+        kind: documentation
+    post:
+      operationId: post_api_v1_inbox
+      tags:
+      - Api
+      summary: POST /api/v1/inbox
+      x-source: https://docs.phone.inc/api/inbox
+      parameters:
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostApiV1InboxRequest'
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostApiV1InboxResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl JavaScript Python Ruby GET /v1/inbox curl 'https://app.phone.inc/api/v1/inbox?limit=50'  -H \"X-Api-Key: $PHONE_INC_API_KEY\"\
+          \ \n Copy Copied! Response { \n \"threads\" : [ \n { \n \"phone_number\" : \"+4523909778\" , \n \"contact\" : null , \n \"last_activity_at\"\
+          \ : \"2026-10-07T09:40:59Z\" , \n \"unseen_count\" : 1 , \n \"business_number_ids\" : [ \n \"019daef1-085e-762f-98a5-ed28d44138b8\"\
+          \ \n ] , \n \"preview\" : \"Missed c"
+  /api/v1/inbox/{phoneNumber}/activity:
+    get:
+      operationId: get_api_v1_inbox_phoneNumber_activity
+      tags:
+      - Api
+      summary: load a number's timeline with GET /api/v1/inbox/:phone_number/activity
+      x-source: https://docs.phone.inc/api/texting
+      parameters:
+      - name: phoneNumber
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: defaults to 50 and is clamped to 1–100
+      - name: next_cursor
+        in: query
+        required: false
+        schema:
+          type: string
+        description: cursor for older items
+      - name: business_number_id
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filters the history
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetApiV1InboxPhonenumberActivityResponse'
+      x-evidence:
+        kind: documentation
+  /api/v1/inbox/{phoneNumber}/seen:
+    post:
+      operationId: post_api_v1_inbox_phoneNumber_seen
+      tags:
+      - Api
+      summary: mark observed items seen with POST /api/v1/inbox/:phone_number/seen
+      x-source: https://docs.phone.inc/api/texting
+      parameters:
+      - name: phoneNumber
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostApiV1InboxPhonenumberSeenRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /oauth/authorize:
+    get:
+      operationId: get_oauth_authorize
+      tags:
+      - Oauth
+      summary: Redirect the user to authorize the client
+      x-source: https://docs.phone.inc/api/oauth
+      parameters:
+      - name: response_type
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Must be code
+      - name: client_id
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: redirect_uri
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: scope
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Space‑separated list of scopes, use api
+      - name: state
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Opaque CSRF token
+      - name: code_challenge
+        in: query
+        required: true
+        schema:
+          type: string
+        description: PKCE challenge
+      - name: code_challenge_method
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Must be S256
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /oauth/register:
+    post:
+      operationId: post_oauth_register
+      tags:
+      - Oauth
+      summary: POST /oauth/register
+      x-source: https://docs.phone.inc/api/oauth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostOauthRegisterRequest'
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostOauthRegisterResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl JavaScript Python Ruby POST /oauth/register curl -X POST https://app.phone.inc/oauth/register  -H \"Content-Type: application/json\"\
+          \  -d '{ \n \"client_name\": \"My MCP connector\", \n \"redirect_uris\": [\"http://127.0.0.1:8765/callback\"], \n \"token_endpoint_auth_method\"\
+          : \"none\" \n }' \n Copy Copied! \n Response { \n \"client_id\" : \"a1b2c3d4e5f6g7h8i9j0\" , \n \"client_id_issued_at\" : 1730895600\
+          \ , \n \"redirect_u"
+  /oauth/revoke:
+    post:
+      operationId: post_oauth_revoke
+      tags:
+      - Oauth
+      summary: Invalidate an access or refresh token
+      x-source: https://docs.phone.inc/api/oauth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostOauthRevokeRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /oauth/token:
+    post:
+      operationId: post_oauth_token
+      tags:
+      - Oauth
+      summary: Exchange authorization code or refresh token for access token
+      x-source: https://docs.phone.inc/api/oauth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostOauthTokenRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostOauthTokenResponse'
+      x-evidence:
+        kind: documentation
+  /v1/activity/unseen:
+    get:
+      operationId: get_v1_activity_unseen
+      tags:
+      - Activity
+      summary: Unseen activity
+      x-source: https://docs.phone.inc/api/calls
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1ActivityUnseenResponse'
+      x-evidence:
+        kind: documentation
+  /v1/business_numbers/{businessNumberId}/texting_settings:
+    get:
+      operationId: get_v1_business_numbers_businessNumberId_texting_settings
+      tags:
+      - Business Numbers
+      summary: Texting and inbox - Phone.inc documentation
+      description: Returns the business number's outside-hours auto-reply settings.
+      x-source: https://docs.phone.inc/api/texting
+      parameters:
+      - name: businessNumberId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1BusinessNumbersBusinessnumberidTextingSettingsResponse'
+      x-evidence:
+        kind: documentation
+    patch:
+      operationId: patch_v1_business_numbers_businessNumberId_texting_settings
+      tags:
+      - Business Numbers
+      summary: Texting and inbox - Phone.inc documentation
+      description: Updates texting settings for a business number.
+      x-source: https://docs.phone.inc/api/texting
+      parameters:
+      - name: businessNumberId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchV1BusinessNumbersBusinessnumberidTextingSettingsRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchV1BusinessNumbersBusinessnumberidTextingSettingsRespons'
+      x-evidence:
+        kind: documentation
+  /v1/calls:
+    get:
+      operationId: get_v1_calls
+      tags:
+      - Calls
+      summary: List recent calls
+      x-source: https://docs.phone.inc/api/calls
+      parameters:
+      - name: query
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Search transcribed calls by exact language and semantic similarity.
+      - name: business_number_id
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter to one business number by its public id.
+      - name: phone_number
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter to calls involving this phone number on the remote side.
+      - name: direction
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Limit results to inbound or outbound.
+      - name: state
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter by call state.
+      - name: start_at
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Inclusive call-start boundary (ISO 8601).
+      - name: end_at
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Exclusive call-start boundary (ISO 8601).
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The previous response's next_cursor.
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: Maximum number of calls to return.
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1CallsResponse'
+      x-evidence:
+        kind: documentation
+  /v1/calls/{id}:
+    get:
+      operationId: get_v1_calls_id
+      tags:
+      - Calls
+      summary: Retrieve a call
+      x-source: https://docs.phone.inc/api/calls
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1CallsIdResponse'
+      x-evidence:
+        kind: documentation
+  /v1/calls/{id}/transfers:
+    post:
+      operationId: post_v1_calls_id_transfers
+      tags:
+      - Calls
+      summary: Start a warm transfer
+      x-source: https://docs.phone.inc/api/calls
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1CallsIdTransfersRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1CallsIdTransfersResponse'
+      x-evidence:
+        kind: documentation
+  /v1/calls/{id}/transfers/{transferId}:
+    delete:
+      operationId: delete_v1_calls_id_transfers_transferId
+      tags:
+      - Calls
+      summary: Cancel a warm transfer
+      x-source: https://docs.phone.inc/api/calls
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: transferId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteV1CallsIdTransfersTransferidResponse'
+      x-evidence:
+        kind: documentation
+  /v1/calls/{id}/transfers/{transferId}/completion:
+    post:
+      operationId: post_v1_calls_id_transfers_transferId_completion
+      tags:
+      - Calls
+      summary: Complete a warm transfer
+      x-source: https://docs.phone.inc/api/calls
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: transferId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1CallsIdTransfersTransferidCompletionResponse'
+      x-evidence:
+        kind: documentation
+  /v1/calls/seen:
+    post:
+      operationId: post_v1_calls_seen
+      tags:
+      - Calls
+      summary: Mark a conversation seen
+      x-source: https://docs.phone.inc/api/calls
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1CallsSeenRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /v1/company:
+    get:
+      operationId: get_v1_company
+      tags:
+      - Company
+      summary: Retrieve the company
+      description: Returns the company associated with the authenticated API key or OAuth token.
+      x-source: https://docs.phone.inc/api/company
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1CompanyResponse'
+      x-evidence:
+        kind: documentation
+    patch:
+      operationId: patch_v1_company
+      tags:
+      - Company
+      summary: Update the company
+      description: Updates one or more fields on the company. Pass only the fields you want to change — omitted fields are left unchanged.
+      x-source: https://docs.phone.inc/api/company
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchV1CompanyRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchV1CompanyResponse'
+      x-evidence:
+        kind: documentation
+  /v1/inbox:
+    get:
+      operationId: get_v1_inbox
+      tags:
+      - Inbox
+      summary: List the inbox
+      x-source: https://docs.phone.inc/api/inbox
+      parameters:
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: Number of items per page, defaults to 50 and clamped to 1–100
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Cursor for pagination
+      - name: business_number_id
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter by business number
+      - name: query
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Text query for searching contacts
+      - name: unseen
+        in: query
+        required: false
+        schema:
+          type: boolean
+        description: Filter to only unseen threads
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1InboxResponse'
+      x-evidence:
+        kind: documentation
+  /v1/inbox/{phoneNumber}/activity:
+    get:
+      operationId: get_v1_inbox_phoneNumber_activity
+      tags:
+      - Inbox
+      summary: List activity
+      x-source: https://docs.phone.inc/api/inbox
+      parameters:
+      - name: phoneNumber
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: Number of items per page, defaults to 50 and clamped to 1–100
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Cursor for pagination
+      - name: business_number_id
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter by business number
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1InboxPhonenumberActivityResponse'
+      x-evidence:
+        kind: documentation
+  /v1/inbox/{phoneNumber}/seen:
+    post:
+      operationId: post_v1_inbox_phoneNumber_seen
+      tags:
+      - Inbox
+      summary: Mark activity seen
+      x-source: https://docs.phone.inc/api/inbox
+      parameters:
+      - name: phoneNumber
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: business_number_id
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Optional filter to limit update to a business number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1InboxPhonenumberSeenRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /v1/messages/{id}:
+    get:
+      operationId: get_v1_messages_id
+      tags:
+      - Messages
+      summary: Retrieve a text
+      x-source: https://docs.phone.inc/api/texting
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1MessagesIdResponse'
+      x-evidence:
+        kind: documentation
+  /v1/messages/{id}/retries:
+    post:
+      operationId: post_v1_messages_id_retries
+      tags:
+      - Messages
+      summary: Retry a failed text
+      x-source: https://docs.phone.inc/api/texting
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1MessagesIdRetriesRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1MessagesIdRetriesResponse'
+      x-evidence:
+        kind: documentation
+  /v1/text_snippets:
+    get:
+      operationId: get_v1_text_snippets
+      tags:
+      - Text Snippets
+      summary: List snippets
+      x-source: https://docs.phone.inc/api/texting
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1TextSnippetsResponse'
+      x-evidence:
+        kind: documentation
+    post:
+      operationId: post_v1_text_snippets
+      tags:
+      - Text Snippets
+      summary: Create a snippet
+      x-source: https://docs.phone.inc/api/texting
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1TextSnippetsRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1TextSnippetsResponse'
+      x-evidence:
+        kind: documentation
+  /v1/text_snippets/{id}:
+    delete:
+      operationId: delete_v1_text_snippets_id
+      tags:
+      - Text Snippets
+      summary: Texting and inbox - Phone.inc documentation
+      description: Deletes a company-shared snippet. Returns 204 No Content.
+      x-source: https://docs.phone.inc/api/texting
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+    get:
+      operationId: get_v1_text_snippets_id
+      tags:
+      - Text Snippets
+      summary: Retrieve a snippet
+      x-source: https://docs.phone.inc/api/texting
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetV1TextSnippetsIdResponse'
+      x-evidence:
+        kind: documentation
+    patch:
+      operationId: patch_v1_text_snippets_id
+      tags:
+      - Text Snippets
+      summary: Update a snippet
+      x-source: https://docs.phone.inc/api/texting
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchV1TextSnippetsIdRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchV1TextSnippetsIdResponse'
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    GetWellKnownOauthAuthorizationServerResponse:
+      type: object
+      properties:
+        issuer:
+          type: string
+        authorization_endpoint:
+          type: string
+        token_endpoint:
+          type: string
+        revocation_endpoint:
+          type: string
+        registration_endpoint:
+          type: string
+        response_types_supported:
+          type: array
+        grant_types_supported:
+          type: array
+        code_challenge_methods_supported:
+          type: array
+        token_endpoint_auth_methods_supported:
+          type: array
+        scopes_supported:
+          type: array
+    GetWellKnownOauthProtectedResourceResponse:
+      type: object
+      properties:
+        resource:
+          type: string
+        issuer:
+          type: string
+    GetWellKnownOauthProtectedResourceMcpResponse:
+      type: object
+      properties:
+        resource:
+          type: string
+        issuer:
+          type: string
+    GetApiV1ActivityUnseenResponse:
+      type: object
+      properties:
+        numbers:
+          type: array
+          items:
+            type: object
+            properties:
+              business_number_id:
+                type: string
+              people:
+                type: integer
+    GetApiV1CallsResponse:
+      type: object
+      properties:
+        query:
+          type: string
+        business_number_id:
+          type: string
+        direction:
+          type: string
+        state:
+          type: string
+        limit:
+          type: integer
+    PostApiV1CallsRequest:
+      type: object
+      properties:
+        employee_id:
+          type: string
+    PostApiV1CallsResponse:
+      type: object
+      properties:
+        calls:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              from:
+                type: string
+              to:
+                type: string
+              direction:
+                type: string
+              state:
+                type: string
+              started_at:
+                type: string
+                format: date-time
+              answered_at:
+                type: string
+                format: date-time
+              duration:
+                type: integer
+              summary:
+                type: string
+              transcription:
+                type: string
+              transcription_segments:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    speaker:
+                      type: string
+                    text:
+                      type: string
+                    employee_id:
+                      type:
+                      - string
+                      - 'null'
+              recording_url:
+                type: string
+              business_number_id:
+                type: string
+              business_number_name:
+                type: string
+              business_number:
+                type: string
+              business_number_formatted:
+                type: string
+              employees:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    first_name:
+                      type: string
+                    last_name:
+                      type: string
+        next_cursor:
+          type:
+          - string
+          - 'null'
+    PostApiV1CallsCallIdTransfersRequest:
+      type: object
+      properties:
+        employee_id:
+          type: string
+    PostApiV1CallsCallIdTransfersResponse:
+      type: object
+      properties:
+        transfer:
+          type: object
+          properties:
+            id:
+              type: string
+            state:
+              type: string
+            from_employee:
+              type: object
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+            to_employee:
+              type: object
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+    DeleteApiV1CallsCallIdTransfersTransferIdResponse:
+      type: object
+      properties:
+        transfer:
+          type: object
+          properties:
+            id:
+              type: string
+            state:
+              type: string
+            from_employee:
+              type: object
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+            to_employee:
+              type: object
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+    PostApiV1CallsCallIdTransfersTransferIdCompletionResponse:
+      type: object
+      properties:
+        transfer:
+          type: object
+          properties:
+            id:
+              type: string
+            state:
+              type: string
+            from_employee:
+              type: object
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+            to_employee:
+              type: object
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+    PostApiV1CallsCallidTransfersResponse:
+      type: object
+      properties:
+        transfer:
+          type: object
+          properties:
+            id:
+              type: string
+            state:
+              type: string
+            from_employee:
+              type: object
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+            to_employee:
+              type: object
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+    PostApiV1CallsCallidTransfersTransferidCompletionResponse:
+      type: object
+      properties:
+        transfer:
+          type: object
+          properties:
+            id:
+              type: string
+            state:
+              type: string
+            from_employee:
+              type: object
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+            to_employee:
+              type: object
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+    GetApiV1Calls0193F4Ba12347C009E3D2B2B8A7F1C11Response:
+      type: object
+      properties:
+        id:
+          type: string
+        from:
+          type: string
+        to:
+          type: string
+        direction:
+          type: string
+        state:
+          type: string
+        started_at:
+          type: string
+          format: date-time
+        answered_at:
+          type: string
+          format: date-time
+        duration:
+          type:
+          - string
+          - 'null'
+        summary:
+          type:
+          - string
+          - 'null'
+        transcription:
+          type:
+          - string
+          - 'null'
+        transcription_segments:
+          type:
+          - string
+          - 'null'
+        recording_url:
+          type:
+          - string
+          - 'null'
+        business_number_id:
+          type: string
+        business_number_name:
+          type: string
+        business_number:
+          type: string
+        business_number_formatted:
+          type: string
+        transfers:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              state:
+                type: string
+              from_employee:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+              to_employee:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+        employees:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              first_name:
+                type: string
+              last_name:
+                type: string
+    GetApiV1CallsActiveResponse:
+      type: object
+      properties:
+        call:
+          type: object
+          properties:
+            id:
+              type: string
+            state:
+              type: string
+            direction:
+              type: string
+            from:
+              type: string
+            to:
+              type: string
+        transfer:
+          type:
+          - string
+          - 'null'
+        employees:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              first_name:
+                type: string
+              last_name:
+                type: string
+              status:
+                type: string
+              do_not_disturb_expires_at:
+                type:
+                - string
+                - 'null'
+        available_employees:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              first_name:
+                type: string
+              last_name:
+                type: string
+    PostApiV1CallsSeenRequest:
+      type: object
+      properties:
+        business_number_id:
+          type: string
+        phone_number:
+          type: string
+        seen:
+          type: boolean
+    PatchApiV1CompanyRequest:
+      type: object
+      properties:
+        city:
+          type: string
+        vat_id:
+          type: string
+    PatchApiV1CompanyResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        address:
+          type: string
+        city:
+          type: string
+        state:
+          type:
+          - string
+          - 'null'
+        zip:
+          type: string
+        country:
+          type: string
+        vat_id:
+          type: string
+        requires_two_factor:
+          type: boolean
+        plan:
+          type: string
+        entitlements:
+          type: object
+          properties:
+            add_employees:
+              type: boolean
+            outbound_calls:
+              type: boolean
+            add_business_numbers:
+              type: boolean
+    GetApiV1InboxResponse:
+      type: object
+      properties:
+        threads:
+          type: array
+          description: list of inbox threads
+        next_cursor:
+          type: string
+          description: cursor for next page
+    PostApiV1InboxRequest:
+      type: object
+      properties:
+        through:
+          type: string
+          format: date-time
+    PostApiV1InboxResponse:
+      type: object
+      properties:
+        threads:
+          type: array
+          items:
+            type: object
+            properties:
+              phone_number:
+                type: string
+              contact:
+                type:
+                - string
+                - 'null'
+              last_activity_at:
+                type: string
+                format: date-time
+              unseen_count:
+                type: integer
+              business_number_ids:
+                type: array
+                items:
+                  type: string
+              preview:
+                type: string
+              latest_item:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  type:
+                    type: string
+                  direction:
+                    type: string
+                  missed:
+                    type: boolean
+        next_cursor:
+          type:
+          - string
+          - 'null'
+    GetApiV1InboxPhonenumberActivityResponse:
+      type: object
+      properties:
+        phone_number:
+          type: string
+        contact:
+          type: object
+          description: nullable contact reference
+        items:
+          type: array
+          description: activity items
+        next_cursor:
+          type: string
+        observed_at:
+          type: string
+          description: timestamp to use for mark‑seen
+    PostApiV1InboxPhonenumberSeenRequest:
+      type: object
+      properties:
+        through:
+          type: string
+          description: ISO‑8601 timestamp returned by List activity
+      required:
+      - through
+    PostOauthRegisterRequest:
+      type: object
+      properties:
+        client_name:
+          type: string
+        redirect_uris:
+          type: array
+          items:
+            type: string
+        token_endpoint_auth_method:
+          type: string
+    PostOauthRegisterResponse:
+      type: object
+      properties:
+        client_id:
+          type: string
+        client_id_issued_at:
+          type: integer
+        redirect_uris:
+          type: array
+          items:
+            type: string
+        token_endpoint_auth_method:
+          type: string
+        grant_types:
+          type: array
+          items:
+            type: string
+        response_types:
+          type: array
+          items:
+            type: string
+        client_name:
+          type: string
+        scope:
+          type: string
+    PostOauthRevokeRequest:
+      type: object
+      properties:
+        token:
+          type: string
+          description: Access or refresh token to revoke
+        client_id:
+          type: string
+      required:
+      - token
+      - client_id
+    PostOauthTokenRequest:
+      type: object
+      properties:
+        grant_type:
+          type: string
+          description: '"authorization_code" or "refresh_token"'
+        code:
+          type: string
+          description: Authorization code (when grant_type=authorization_code)
+        redirect_uri:
+          type: string
+          description: Must match the original redirect URI
+        client_id:
+          type: string
+        code_verifier:
+          type: string
+          description: PKCE verifier (when grant_type=authorization_code)
+        refresh_token:
+          type: string
+          description: Refresh token (when grant_type=refresh_token)
+      required:
+      - grant_type
+      - client_id
+    PostOauthTokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        token_type:
+          type: string
+        expires_in:
+          type: integer
+        refresh_token:
+          type: string
+        scope:
+          type: string
+        created_at:
+          type: integer
+    GetV1ActivityUnseenResponse:
+      type: object
+      properties:
+        numbers:
+          type: array
+          description: List of business numbers with unseen activity.
+    GetV1BusinessNumbersBusinessnumberidTextingSettingsResponse:
+      type: object
+      properties:
+        auto_reply_enabled:
+          type: boolean
+          description: Whether auto-reply is enabled.
+        auto_reply_text:
+          type: string
+          description: Auto-reply message text.
+        auto_reply_cooldown_minutes:
+          type: integer
+          description: Cooldown period in minutes.
+    PatchV1BusinessNumbersBusinessnumberidTextingSettingsRequest:
+      type: object
+      properties:
+        auto_reply_enabled:
+          type: boolean
+          description: Enable or disable auto-reply.
+        auto_reply_text:
+          type: string
+          description: Auto-reply message text (required when enabled).
+        auto_reply_cooldown_minutes:
+          type: integer
+          description: Cooldown period in minutes (60–43200).
+    PatchV1BusinessNumbersBusinessnumberidTextingSettingsRespons:
+      type: object
+      properties:
+        auto_reply_enabled:
+          type: boolean
+          description: Whether auto-reply is enabled.
+        auto_reply_text:
+          type: string
+          description: Auto-reply message text.
+        auto_reply_cooldown_minutes:
+          type: integer
+          description: Cooldown period in minutes.
+    GetV1CallsResponse:
+      type: object
+      properties:
+        calls:
+          type: array
+          description: Array of call objects.
+        next_cursor:
+          type: string
+          description: Cursor for pagination.
+    GetV1CallsIdResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        from:
+          type: string
+        to:
+          type: string
+        direction:
+          type: string
+        state:
+          type: string
+        started_at:
+          type: string
+        answered_at:
+          type: string
+        duration:
+          type: integer
+        summary:
+          type: string
+        transcription:
+          type: string
+        transcription_segments:
+          type: array
+        recording_url:
+          type: string
+        business_number_id:
+          type: string
+        business_number_name:
+          type: string
+        business_number:
+          type: string
+        business_number_formatted:
+          type: string
+        transfers:
+          type: array
+        employees:
+          type: array
+    PostV1CallsIdTransfersRequest:
+      type: object
+      properties:
+        employee_id:
+          type: string
+          description: Public ID of the coworker to transfer to.
+      required:
+      - employee_id
+    PostV1CallsIdTransfersResponse:
+      type: object
+      properties:
+        transfer:
+          type: object
+          description: Transfer object.
+    DeleteV1CallsIdTransfersTransferidResponse:
+      type: object
+      properties:
+        transfer:
+          type: object
+          description: Transfer object after cancellation.
+    PostV1CallsIdTransfersTransferidCompletionResponse:
+      type: object
+      properties:
+        transfer:
+          type: object
+          description: Transfer object after completion.
+    PostV1CallsSeenRequest:
+      type: object
+      properties:
+        business_number_id:
+          type: string
+          description: The business number's public ID.
+        phone_number:
+          type: string
+          description: Remote person's E.164 number.
+        seen:
+          type: boolean
+          description: Seen state to set.
+      required:
+      - business_number_id
+      - phone_number
+      - seen
+    GetV1CompanyResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the company.
+        name:
+          type: string
+          description: The registered company name.
+        address:
+          type: string
+          description: Street address. May be null.
+        city:
+          type: string
+          description: City. May be null.
+        state:
+          type: string
+          description: State or region. May be null.
+        zip:
+          type: string
+          description: Postal code. May be null.
+        country:
+          type: string
+          description: ISO 3166-1 alpha-2 country code, e.g. "DK".
+        vat_id:
+          type: string
+          description: VAT registration number, e.g. "DK12345678". May be null.
+        requires_two_factor:
+          type: boolean
+          description: Whether employees must use two-factor authentication.
+        plan:
+          type: string
+          description: 'Read-only subscription plan: free or pro.'
+        entitlements:
+          type: object
+          description: Read-only access decisions.
+        entitlements.add_employees:
+          type: boolean
+          description: Allows creating another employee.
+        entitlements.outbound_calls:
+          type: boolean
+          description: Controls the web outbound‑call upgrade prompt, not native calling.
+        entitlements.add_business_numbers:
+          type: boolean
+          description: Allows acquiring another business number in the dashboard.
+    PatchV1CompanyRequest:
+      type: object
+      properties:
+        address:
+          type: string
+          description: Street address.
+        city:
+          type: string
+          description: City.
+        state:
+          type: string
+          description: State or region.
+        zip:
+          type: string
+          description: Postal code.
+        country:
+          type: string
+          description: ISO 3166-1 alpha-2 country code, e.g. "DK". Must match a country Phone.inc supports.
+        vat_id:
+          type: string
+          description: VAT registration number.
+        requires_two_factor:
+          type: boolean
+          description: Enable or disable the company two‑factor authentication requirement.
+    PatchV1CompanyResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the company.
+        name:
+          type: string
+          description: The registered company name.
+        address:
+          type: string
+          description: Street address.
+        city:
+          type: string
+          description: City.
+        state:
+          type: string
+          description: State or region.
+        zip:
+          type: string
+          description: Postal code.
+        country:
+          type: string
+          description: ISO 3166-1 alpha-2 country code.
+        vat_id:
+          type: string
+          description: VAT registration number.
+        requires_two_factor:
+          type: boolean
+          description: Whether employees must use two‑factor authentication.
+        plan:
+          type: string
+          description: Read‑only subscription plan.
+        entitlements:
+          type: object
+          description: Read‑only access decisions.
+        entitlements.add_employees:
+          type: boolean
+          description: Allows creating another employee.
+        entitlements.outbound_calls:
+          type: boolean
+          description: Controls the web outbound‑call upgrade prompt.
+        entitlements.add_business_numbers:
+          type: boolean
+          description: Allows acquiring another business number.
+    GetV1InboxResponse:
+      type: object
+      properties:
+        threads:
+          type: array
+          description: List of thread objects
+        next_cursor:
+          type: string
+          description: Cursor for the next page
+    GetV1InboxPhonenumberActivityResponse:
+      type: object
+      properties:
+        phone_number:
+          type: string
+          description: The phone number queried
+        contact:
+          type: object
+          description: Contact reference if any
+        items:
+          type: array
+          description: List of activity items
+        next_cursor:
+          type: string
+          description: Cursor for the next page
+        observed_at:
+          type: string
+          description: Timestamp to use for marking activity seen
+    PostV1InboxPhonenumberSeenRequest:
+      type: object
+      properties:
+        through:
+          type: string
+          description: Timestamp returned as observed_at by the activity endpoint
+      required:
+      - through
+    GetV1MessagesIdResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        format:
+          type: string
+        created_at:
+          type: string
+        business_number_id:
+          type: string
+        business_number_name:
+          type: string
+        seen_at:
+          type: string
+        direction:
+          type: string
+        from:
+          type: string
+        to:
+          type: string
+        text:
+          type: string
+        author:
+          type: object
+        status:
+          type: string
+        sms_count:
+          type: integer
+        encoding:
+          type: string
+        delivered_at:
+          type: string
+        received_at:
+          type: string
+        failure_code:
+          type: string
+        can_retry:
+          type: boolean
+    PostV1MessagesIdRetriesRequest:
+      type: object
+      properties:
+        idempotency_key:
+          type: string
+          description: 1–128 characters
+      required:
+      - idempotency_key
+    PostV1MessagesIdRetriesResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        format:
+          type: string
+        status:
+          type: string
+        can_retry:
+          type: boolean
+    GetV1TextSnippetsResponse:
+      type: object
+      properties:
+        snippets:
+          type: array
+          description: company‑shared snippets
+    PostV1TextSnippetsRequest:
+      type: object
+      properties:
+        title:
+          type: string
+          description: 1–128 characters
+        text:
+          type: string
+          description: 1–10,000 characters
+        position:
+          type: integer
+          description: non‑negative, default 0
+      required:
+      - title
+      - text
+    PostV1TextSnippetsResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        text:
+          type: string
+        position:
+          type: integer
+        created_at:
+          type: string
+        updated_at:
+          type: string
+    GetV1TextSnippetsIdResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        text:
+          type: string
+        position:
+          type: integer
+        created_at:
+          type: string
+        updated_at:
+          type: string
+    PatchV1TextSnippetsIdRequest:
+      type: object
+      properties:
+        title:
+          type: string
+        text:
+          type: string
+        position:
+          type: integer
+    PatchV1TextSnippetsIdResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        text:
+          type: string
+        position:
+          type: integer
+        created_at:
+          type: string
+        updated_at:
+          type: string
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+security:
+- apiKey: []
+tags:
+- name: API
+- name: Activity
+- name: Api
+- name: Business Numbers
+- name: Calls
+- name: Company
+- name: Inbox
+- name: Messages
+- name: Oauth
+- name: Text Snippets

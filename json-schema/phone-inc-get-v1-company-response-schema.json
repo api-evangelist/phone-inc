@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/phone-inc/main/json-schema/phone-inc-get-v1-company-response-schema.json",
+  "title": "GetV1CompanyResponse",
+  "x-generated": "2026-10-24",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/GetV1CompanyResponse",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the company."
+    },
+    "name": {
+      "type": "string",
+      "description": "The registered company name."
+    },
+    "address": {
+      "type": "string",
+      "description": "Street address. May be null."
+    },
+    "city": {
+      "type": "string",
+      "description": "City. May be null."
+    },
+    "state": {
+      "type": "string",
+      "description": "State or region. May be null."
+    },
+    "zip": {
+      "type": "string",
+      "description": "Postal code. May be null."
+    },
+    "country": {
+      "type": "string",
+      "description": "ISO 3166-1 alpha-2 country code, e.g. \"DK\"."
+    },
+    "vat_id": {
+      "type": "string",
+      "description": "VAT registration number, e.g. \"DK12345678\". May be null."
+    },
+    "requires_two_factor": {
+      "type": "boolean",
+      "description": "Whether employees must use two-factor authentication."
+    },
+    "plan": {
+      "type": "string",
+      "description": "Read-only subscription plan: free or pro."
+    },
+    "entitlements": {
+      "type": "object",
+      "description": "Read-only access decisions."
+    },
+    "entitlements.add_employees": {
+      "type": "boolean",
+      "description": "Allows creating another employee."
+    },
+    "entitlements.outbound_calls": {
+      "type": "boolean",
+      "description": "Controls the web outbound‑call upgrade prompt, not native calling."
+    },
+    "entitlements.add_business_numbers": {
+      "type": "boolean",
+      "description": "Allows acquiring another business number in the dashboard."
+    }
+  }
+}

@@ -1,0 +1,445 @@
+{
+  "@context": {
+    "@vocab": "https://phone.inc/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "phone": "https://phone.inc/schema#",
+    "GetWellKnownOauthAuthorizationServerResponse": "phone:GetWellKnownOauthAuthorizationServerResponse",
+    "issuer": {
+      "@id": "phone:issuer",
+      "@type": "xsd:string"
+    },
+    "authorization_endpoint": {
+      "@id": "phone:authorization_endpoint",
+      "@type": "xsd:string"
+    },
+    "token_endpoint": {
+      "@id": "phone:token_endpoint",
+      "@type": "xsd:string"
+    },
+    "revocation_endpoint": {
+      "@id": "phone:revocation_endpoint",
+      "@type": "xsd:string"
+    },
+    "registration_endpoint": {
+      "@id": "phone:registration_endpoint",
+      "@type": "xsd:string"
+    },
+    "response_types_supported": {
+      "@id": "phone:response_types_supported",
+      "@container": "@list"
+    },
+    "grant_types_supported": {
+      "@id": "phone:grant_types_supported",
+      "@container": "@list"
+    },
+    "code_challenge_methods_supported": {
+      "@id": "phone:code_challenge_methods_supported",
+      "@container": "@list"
+    },
+    "token_endpoint_auth_methods_supported": {
+      "@id": "phone:token_endpoint_auth_methods_supported",
+      "@container": "@list"
+    },
+    "scopes_supported": {
+      "@id": "phone:scopes_supported",
+      "@container": "@list"
+    },
+    "GetWellKnownOauthProtectedResourceResponse": "phone:GetWellKnownOauthProtectedResourceResponse",
+    "resource": {
+      "@id": "phone:resource",
+      "@type": "xsd:string"
+    },
+    "GetWellKnownOauthProtectedResourceMcpResponse": "phone:GetWellKnownOauthProtectedResourceMcpResponse",
+    "GetApiV1ActivityUnseenResponse": "phone:GetApiV1ActivityUnseenResponse",
+    "numbers": {
+      "@id": "phone:numbers",
+      "@container": "@list"
+    },
+    "GetApiV1CallsResponse": "phone:GetApiV1CallsResponse",
+    "query": {
+      "@id": "phone:query",
+      "@type": "xsd:string"
+    },
+    "business_number_id": {
+      "@id": "phone:business_number_id",
+      "@type": "xsd:string"
+    },
+    "direction": {
+      "@id": "phone:direction",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "phone:state",
+      "@type": "xsd:string"
+    },
+    "limit": {
+      "@id": "phone:limit",
+      "@type": "xsd:integer"
+    },
+    "PostApiV1CallsRequest": "phone:PostApiV1CallsRequest",
+    "employee_id": {
+      "@id": "phone:employee_id",
+      "@type": "xsd:string"
+    },
+    "PostApiV1CallsResponse": "phone:PostApiV1CallsResponse",
+    "calls": {
+      "@id": "phone:calls",
+      "@container": "@list"
+    },
+    "next_cursor": {
+      "@id": "phone:next_cursor",
+      "@type": "xsd:string"
+    },
+    "PostApiV1CallsCallIdTransfersRequest": "phone:PostApiV1CallsCallIdTransfersRequest",
+    "PostApiV1CallsCallIdTransfersResponse": "phone:PostApiV1CallsCallIdTransfersResponse",
+    "transfer": {
+      "@id": "phone:transfer"
+    },
+    "DeleteApiV1CallsCallIdTransfersTransferIdResponse": "phone:DeleteApiV1CallsCallIdTransfersTransferIdResponse",
+    "PostApiV1CallsCallIdTransfersTransferIdCompletionResponse": "phone:PostApiV1CallsCallIdTransfersTransferIdCompletionResponse",
+    "PostApiV1CallsCallidTransfersResponse": "phone:PostApiV1CallsCallidTransfersResponse",
+    "PostApiV1CallsCallidTransfersTransferidCompletionResponse": "phone:PostApiV1CallsCallidTransfersTransferidCompletionResponse",
+    "GetApiV1Calls0193F4Ba12347C009E3D2B2B8A7F1C11Response": "phone:GetApiV1Calls0193F4Ba12347C009E3D2B2B8A7F1C11Response",
+    "id": {
+      "@id": "phone:id",
+      "@type": "xsd:string"
+    },
+    "from": {
+      "@id": "phone:from",
+      "@type": "xsd:string"
+    },
+    "to": {
+      "@id": "phone:to",
+      "@type": "xsd:string"
+    },
+    "started_at": {
+      "@id": "phone:started_at",
+      "@type": "xsd:dateTime"
+    },
+    "answered_at": {
+      "@id": "phone:answered_at",
+      "@type": "xsd:dateTime"
+    },
+    "duration": {
+      "@id": "phone:duration",
+      "@type": "xsd:string"
+    },
+    "summary": {
+      "@id": "phone:summary",
+      "@type": "xsd:string"
+    },
+    "transcription": {
+      "@id": "phone:transcription",
+      "@type": "xsd:string"
+    },
+    "transcription_segments": {
+      "@id": "phone:transcription_segments",
+      "@type": "xsd:string"
+    },
+    "recording_url": {
+      "@id": "phone:recording_url",
+      "@type": "xsd:string"
+    },
+    "business_number_name": {
+      "@id": "phone:business_number_name",
+      "@type": "xsd:string"
+    },
+    "business_number": {
+      "@id": "phone:business_number",
+      "@type": "xsd:string"
+    },
+    "business_number_formatted": {
+      "@id": "phone:business_number_formatted",
+      "@type": "xsd:string"
+    },
+    "transfers": {
+      "@id": "phone:transfers",
+      "@container": "@list"
+    },
+    "employees": {
+      "@id": "phone:employees",
+      "@container": "@list"
+    },
+    "GetApiV1CallsActiveResponse": "phone:GetApiV1CallsActiveResponse",
+    "call": {
+      "@id": "phone:call"
+    },
+    "available_employees": {
+      "@id": "phone:available_employees",
+      "@container": "@list"
+    },
+    "PostApiV1CallsSeenRequest": "phone:PostApiV1CallsSeenRequest",
+    "phone_number": {
+      "@id": "phone:phone_number",
+      "@type": "xsd:string"
+    },
+    "seen": {
+      "@id": "phone:seen",
+      "@type": "xsd:boolean"
+    },
+    "PatchApiV1CompanyRequest": "phone:PatchApiV1CompanyRequest",
+    "city": {
+      "@id": "phone:city",
+      "@type": "xsd:string"
+    },
+    "vat_id": {
+      "@id": "phone:vat_id",
+      "@type": "xsd:string"
+    },
+    "PatchApiV1CompanyResponse": "phone:PatchApiV1CompanyResponse",
+    "name": {
+      "@id": "phone:name",
+      "@type": "xsd:string"
+    },
+    "address": {
+      "@id": "phone:address",
+      "@type": "xsd:string"
+    },
+    "zip": {
+      "@id": "phone:zip",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "phone:country",
+      "@type": "xsd:string"
+    },
+    "requires_two_factor": {
+      "@id": "phone:requires_two_factor",
+      "@type": "xsd:boolean"
+    },
+    "plan": {
+      "@id": "phone:plan",
+      "@type": "xsd:string"
+    },
+    "entitlements": {
+      "@id": "phone:entitlements"
+    },
+    "GetApiV1InboxResponse": "phone:GetApiV1InboxResponse",
+    "threads": {
+      "@id": "phone:threads",
+      "@container": "@list"
+    },
+    "PostApiV1InboxRequest": "phone:PostApiV1InboxRequest",
+    "through": {
+      "@id": "phone:through",
+      "@type": "xsd:dateTime"
+    },
+    "PostApiV1InboxResponse": "phone:PostApiV1InboxResponse",
+    "GetApiV1InboxPhonenumberActivityResponse": "phone:GetApiV1InboxPhonenumberActivityResponse",
+    "contact": {
+      "@id": "phone:contact"
+    },
+    "items": {
+      "@id": "phone:items",
+      "@container": "@list"
+    },
+    "observed_at": {
+      "@id": "phone:observed_at",
+      "@type": "xsd:string"
+    },
+    "PostApiV1InboxPhonenumberSeenRequest": "phone:PostApiV1InboxPhonenumberSeenRequest",
+    "PostOauthRegisterRequest": "phone:PostOauthRegisterRequest",
+    "client_name": {
+      "@id": "phone:client_name",
+      "@type": "xsd:string"
+    },
+    "redirect_uris": {
+      "@id": "phone:redirect_uris",
+      "@container": "@list"
+    },
+    "token_endpoint_auth_method": {
+      "@id": "phone:token_endpoint_auth_method",
+      "@type": "xsd:string"
+    },
+    "PostOauthRegisterResponse": "phone:PostOauthRegisterResponse",
+    "client_id": {
+      "@id": "phone:client_id",
+      "@type": "xsd:string"
+    },
+    "client_id_issued_at": {
+      "@id": "phone:client_id_issued_at",
+      "@type": "xsd:integer"
+    },
+    "grant_types": {
+      "@id": "phone:grant_types",
+      "@container": "@list"
+    },
+    "response_types": {
+      "@id": "phone:response_types",
+      "@container": "@list"
+    },
+    "scope": {
+      "@id": "phone:scope",
+      "@type": "xsd:string"
+    },
+    "PostOauthRevokeRequest": "phone:PostOauthRevokeRequest",
+    "token": {
+      "@id": "phone:token",
+      "@type": "xsd:string"
+    },
+    "PostOauthTokenRequest": "phone:PostOauthTokenRequest",
+    "grant_type": {
+      "@id": "phone:grant_type",
+      "@type": "xsd:string"
+    },
+    "code": {
+      "@id": "phone:code",
+      "@type": "xsd:string"
+    },
+    "redirect_uri": {
+      "@id": "phone:redirect_uri",
+      "@type": "xsd:string"
+    },
+    "code_verifier": {
+      "@id": "phone:code_verifier",
+      "@type": "xsd:string"
+    },
+    "refresh_token": {
+      "@id": "phone:refresh_token",
+      "@type": "xsd:string"
+    },
+    "PostOauthTokenResponse": "phone:PostOauthTokenResponse",
+    "access_token": {
+      "@id": "phone:access_token",
+      "@type": "xsd:string"
+    },
+    "token_type": {
+      "@id": "phone:token_type",
+      "@type": "xsd:string"
+    },
+    "expires_in": {
+      "@id": "phone:expires_in",
+      "@type": "xsd:integer"
+    },
+    "created_at": {
+      "@id": "phone:created_at",
+      "@type": "xsd:integer"
+    },
+    "GetV1ActivityUnseenResponse": "phone:GetV1ActivityUnseenResponse",
+    "GetV1BusinessNumbersBusinessnumberidTextingSettingsResponse": "phone:GetV1BusinessNumbersBusinessnumberidTextingSettingsResponse",
+    "auto_reply_enabled": {
+      "@id": "phone:auto_reply_enabled",
+      "@type": "xsd:boolean"
+    },
+    "auto_reply_text": {
+      "@id": "phone:auto_reply_text",
+      "@type": "xsd:string"
+    },
+    "auto_reply_cooldown_minutes": {
+      "@id": "phone:auto_reply_cooldown_minutes",
+      "@type": "xsd:integer"
+    },
+    "PatchV1BusinessNumbersBusinessnumberidTextingSettingsRequest": "phone:PatchV1BusinessNumbersBusinessnumberidTextingSettingsRequest",
+    "PatchV1BusinessNumbersBusinessnumberidTextingSettingsRespons": "phone:PatchV1BusinessNumbersBusinessnumberidTextingSettingsRespons",
+    "GetV1CallsResponse": "phone:GetV1CallsResponse",
+    "GetV1CallsIdResponse": "phone:GetV1CallsIdResponse",
+    "PostV1CallsIdTransfersRequest": "phone:PostV1CallsIdTransfersRequest",
+    "PostV1CallsIdTransfersResponse": "phone:PostV1CallsIdTransfersResponse",
+    "DeleteV1CallsIdTransfersTransferidResponse": "phone:DeleteV1CallsIdTransfersTransferidResponse",
+    "PostV1CallsIdTransfersTransferidCompletionResponse": "phone:PostV1CallsIdTransfersTransferidCompletionResponse",
+    "PostV1CallsSeenRequest": "phone:PostV1CallsSeenRequest",
+    "GetV1CompanyResponse": "phone:GetV1CompanyResponse",
+    "entitlements.add_employees": {
+      "@id": "phone:entitlements.add_employees",
+      "@type": "xsd:boolean"
+    },
+    "entitlements.outbound_calls": {
+      "@id": "phone:entitlements.outbound_calls",
+      "@type": "xsd:boolean"
+    },
+    "entitlements.add_business_numbers": {
+      "@id": "phone:entitlements.add_business_numbers",
+      "@type": "xsd:boolean"
+    },
+    "PatchV1CompanyRequest": "phone:PatchV1CompanyRequest",
+    "PatchV1CompanyResponse": "phone:PatchV1CompanyResponse",
+    "GetV1InboxResponse": "phone:GetV1InboxResponse",
+    "GetV1InboxPhonenumberActivityResponse": "phone:GetV1InboxPhonenumberActivityResponse",
+    "PostV1InboxPhonenumberSeenRequest": "phone:PostV1InboxPhonenumberSeenRequest",
+    "GetV1MessagesIdResponse": "phone:GetV1MessagesIdResponse",
+    "type": {
+      "@id": "phone:type",
+      "@type": "xsd:string"
+    },
+    "format": {
+      "@id": "phone:format",
+      "@type": "xsd:string"
+    },
+    "seen_at": {
+      "@id": "phone:seen_at",
+      "@type": "xsd:string"
+    },
+    "text": {
+      "@id": "phone:text",
+      "@type": "xsd:string"
+    },
+    "author": {
+      "@id": "phone:author"
+    },
+    "status": {
+      "@id": "phone:status",
+      "@type": "xsd:string"
+    },
+    "sms_count": {
+      "@id": "phone:sms_count",
+      "@type": "xsd:integer"
+    },
+    "encoding": {
+      "@id": "phone:encoding",
+      "@type": "xsd:string"
+    },
+    "delivered_at": {
+      "@id": "phone:delivered_at",
+      "@type": "xsd:string"
+    },
+    "received_at": {
+      "@id": "phone:received_at",
+      "@type": "xsd:string"
+    },
+    "failure_code": {
+      "@id": "phone:failure_code",
+      "@type": "xsd:string"
+    },
+    "can_retry": {
+      "@id": "phone:can_retry",
+      "@type": "xsd:boolean"
+    },
+    "PostV1MessagesIdRetriesRequest": "phone:PostV1MessagesIdRetriesRequest",
+    "idempotency_key": {
+      "@id": "phone:idempotency_key",
+      "@type": "xsd:string"
+    },
+    "PostV1MessagesIdRetriesResponse": "phone:PostV1MessagesIdRetriesResponse",
+    "GetV1TextSnippetsResponse": "phone:GetV1TextSnippetsResponse",
+    "snippets": {
+      "@id": "phone:snippets",
+      "@container": "@list"
+    },
+    "PostV1TextSnippetsRequest": "phone:PostV1TextSnippetsRequest",
+    "title": {
+      "@id": "phone:title",
+      "@type": "xsd:string"
+    },
+    "position": {
+      "@id": "phone:position",
+      "@type": "xsd:integer"
+    },
+    "PostV1TextSnippetsResponse": "phone:PostV1TextSnippetsResponse",
+    "updated_at": {
+      "@id": "phone:updated_at",
+      "@type": "xsd:string"
+    },
+    "GetV1TextSnippetsIdResponse": "phone:GetV1TextSnippetsIdResponse",
+    "PatchV1TextSnippetsIdRequest": "phone:PatchV1TextSnippetsIdRequest",
+    "PatchV1TextSnippetsIdResponse": "phone:PatchV1TextSnippetsIdResponse"
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Phone Inc API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Phone Inc's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-24) from openapi/_ae-authored/phone-inc-openapi-generated.yml.",
+  "dcterms:created": "2026-10-24",
+  "dcterms:source": [
+    "openapi/_ae-authored/phone-inc-openapi-generated.yml"
+  ]
+}

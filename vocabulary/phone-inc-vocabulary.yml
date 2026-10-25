@@ -1,0 +1,341 @@
+generated: '2026-10-24'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/_ae-authored/phone-inc-openapi-generated.yml
+vocabulary:
+  name: Phone Inc Domain Vocabulary
+  description: 'Terms declared by Phone Inc''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-24'
+  terms:
+  - term: GetWellKnownOauthAuthorizationServerResponse
+    definition: 'Object declared by the contract with fields: issuer, authorization_endpoint, token_endpoint, revocation_endpoint, registration_endpoint,
+      response_types_supported, grant_types_supported, code_challenge_methods_supported, token_endpoint_auth_methods_supported, scopes_supported.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/GetWellKnownOauthAuthorizationServerResponse
+  - term: GetWellKnownOauthProtectedResourceResponse
+    definition: 'Object declared by the contract with fields: resource, issuer.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/GetWellKnownOauthProtectedResourceResponse
+  - term: GetWellKnownOauthProtectedResourceMcpResponse
+    definition: 'Object declared by the contract with fields: resource, issuer.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/GetWellKnownOauthProtectedResourceMcpResponse
+  - term: GetApiV1ActivityUnseenResponse
+    definition: 'Object declared by the contract with fields: numbers.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/GetApiV1ActivityUnseenResponse
+  - term: GetApiV1CallsResponse
+    definition: 'Object declared by the contract with fields: query, business_number_id, direction, state, limit.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/GetApiV1CallsResponse
+  - term: PostApiV1CallsRequest
+    definition: 'Object declared by the contract with fields: employee_id.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostApiV1CallsRequest
+  - term: PostApiV1CallsResponse
+    definition: 'Object declared by the contract with fields: calls, next_cursor.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostApiV1CallsResponse
+  - term: PostApiV1CallsCallIdTransfersRequest
+    definition: 'Object declared by the contract with fields: employee_id.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostApiV1CallsCallIdTransfersRequest
+  - term: PostApiV1CallsCallIdTransfersResponse
+    definition: 'Object declared by the contract with fields: transfer.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostApiV1CallsCallIdTransfersResponse
+  - term: DeleteApiV1CallsCallIdTransfersTransferIdResponse
+    definition: 'Object declared by the contract with fields: transfer.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/DeleteApiV1CallsCallIdTransfersTransferIdResponse
+  - term: PostApiV1CallsCallIdTransfersTransferIdCompletionResponse
+    definition: 'Object declared by the contract with fields: transfer.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostApiV1CallsCallIdTransfersTransferIdCompletionResponse
+  - term: PostApiV1CallsCallidTransfersResponse
+    definition: 'Object declared by the contract with fields: transfer.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostApiV1CallsCallidTransfersResponse
+  - term: PostApiV1CallsCallidTransfersTransferidCompletionResponse
+    definition: 'Object declared by the contract with fields: transfer.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostApiV1CallsCallidTransfersTransferidCompletionResponse
+  - term: GetApiV1Calls0193F4Ba12347C009E3D2B2B8A7F1C11Response
+    definition: 'Object declared by the contract with fields: id, from, to, direction, state, started_at, answered_at, duration, summary, transcription,
+      transcription_segments, recording_url. (6 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/GetApiV1Calls0193F4Ba12347C009E3D2B2B8A7F1C11Response
+  - term: GetApiV1CallsActiveResponse
+    definition: 'Object declared by the contract with fields: call, transfer, employees, available_employees.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/GetApiV1CallsActiveResponse
+  - term: PostApiV1CallsSeenRequest
+    definition: 'Object declared by the contract with fields: business_number_id, phone_number, seen.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostApiV1CallsSeenRequest
+  - term: PatchApiV1CompanyRequest
+    definition: 'Object declared by the contract with fields: city, vat_id.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PatchApiV1CompanyRequest
+  - term: PatchApiV1CompanyResponse
+    definition: 'Object declared by the contract with fields: id, name, address, city, state, zip, country, vat_id, requires_two_factor, plan,
+      entitlements.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PatchApiV1CompanyResponse
+  - term: GetApiV1InboxResponse
+    definition: 'Object declared by the contract with fields: threads, next_cursor.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/GetApiV1InboxResponse
+  - term: PostApiV1InboxRequest
+    definition: 'Object declared by the contract with fields: through.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostApiV1InboxRequest
+  - term: PostApiV1InboxResponse
+    definition: 'Object declared by the contract with fields: threads, next_cursor.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostApiV1InboxResponse
+  - term: GetApiV1InboxPhonenumberActivityResponse
+    definition: 'Object declared by the contract with fields: phone_number, contact, items, next_cursor, observed_at.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/GetApiV1InboxPhonenumberActivityResponse
+  - term: PostApiV1InboxPhonenumberSeenRequest
+    definition: 'Object declared by the contract with fields: through.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostApiV1InboxPhonenumberSeenRequest
+  - term: PostOauthRegisterRequest
+    definition: 'Object declared by the contract with fields: client_name, redirect_uris, token_endpoint_auth_method.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostOauthRegisterRequest
+  - term: PostOauthRegisterResponse
+    definition: 'Object declared by the contract with fields: client_id, client_id_issued_at, redirect_uris, token_endpoint_auth_method, grant_types,
+      response_types, client_name, scope.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostOauthRegisterResponse
+  - term: PostOauthRevokeRequest
+    definition: 'Object declared by the contract with fields: token, client_id.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostOauthRevokeRequest
+  - term: PostOauthTokenRequest
+    definition: 'Object declared by the contract with fields: grant_type, code, redirect_uri, client_id, code_verifier, refresh_token.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostOauthTokenRequest
+  - term: PostOauthTokenResponse
+    definition: 'Object declared by the contract with fields: access_token, token_type, expires_in, refresh_token, scope, created_at.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostOauthTokenResponse
+  - term: GetV1ActivityUnseenResponse
+    definition: 'Object declared by the contract with fields: numbers.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/GetV1ActivityUnseenResponse
+  - term: GetV1BusinessNumbersBusinessnumberidTextingSettingsResponse
+    definition: 'Object declared by the contract with fields: auto_reply_enabled, auto_reply_text, auto_reply_cooldown_minutes.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/GetV1BusinessNumbersBusinessnumberidTextingSettingsResponse
+  - term: PatchV1BusinessNumbersBusinessnumberidTextingSettingsRequest
+    definition: 'Object declared by the contract with fields: auto_reply_enabled, auto_reply_text, auto_reply_cooldown_minutes.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PatchV1BusinessNumbersBusinessnumberidTextingSettingsRequest
+  - term: PatchV1BusinessNumbersBusinessnumberidTextingSettingsRespons
+    definition: 'Object declared by the contract with fields: auto_reply_enabled, auto_reply_text, auto_reply_cooldown_minutes.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PatchV1BusinessNumbersBusinessnumberidTextingSettingsRespons
+  - term: GetV1CallsResponse
+    definition: 'Object declared by the contract with fields: calls, next_cursor.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/GetV1CallsResponse
+  - term: GetV1CallsIdResponse
+    definition: 'Object declared by the contract with fields: id, from, to, direction, state, started_at, answered_at, duration, summary, transcription,
+      transcription_segments, recording_url. (6 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/GetV1CallsIdResponse
+  - term: PostV1CallsIdTransfersRequest
+    definition: 'Object declared by the contract with fields: employee_id.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostV1CallsIdTransfersRequest
+  - term: PostV1CallsIdTransfersResponse
+    definition: 'Object declared by the contract with fields: transfer.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostV1CallsIdTransfersResponse
+  - term: DeleteV1CallsIdTransfersTransferidResponse
+    definition: 'Object declared by the contract with fields: transfer.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/DeleteV1CallsIdTransfersTransferidResponse
+  - term: PostV1CallsIdTransfersTransferidCompletionResponse
+    definition: 'Object declared by the contract with fields: transfer.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostV1CallsIdTransfersTransferidCompletionResponse
+  - term: PostV1CallsSeenRequest
+    definition: 'Object declared by the contract with fields: business_number_id, phone_number, seen.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostV1CallsSeenRequest
+  - term: GetV1CompanyResponse
+    definition: 'Object declared by the contract with fields: id, name, address, city, state, zip, country, vat_id, requires_two_factor, plan,
+      entitlements, entitlements.add_employees. (2 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/GetV1CompanyResponse
+  - term: PatchV1CompanyRequest
+    definition: 'Object declared by the contract with fields: address, city, state, zip, country, vat_id, requires_two_factor.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PatchV1CompanyRequest
+  - term: PatchV1CompanyResponse
+    definition: 'Object declared by the contract with fields: id, name, address, city, state, zip, country, vat_id, requires_two_factor, plan,
+      entitlements, entitlements.add_employees. (2 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PatchV1CompanyResponse
+  - term: GetV1InboxResponse
+    definition: 'Object declared by the contract with fields: threads, next_cursor.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/GetV1InboxResponse
+  - term: GetV1InboxPhonenumberActivityResponse
+    definition: 'Object declared by the contract with fields: phone_number, contact, items, next_cursor, observed_at.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/GetV1InboxPhonenumberActivityResponse
+  - term: PostV1InboxPhonenumberSeenRequest
+    definition: 'Object declared by the contract with fields: through.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostV1InboxPhonenumberSeenRequest
+  - term: GetV1MessagesIdResponse
+    definition: 'Object declared by the contract with fields: id, type, format, created_at, business_number_id, business_number_name, seen_at,
+      direction, from, to, text, author. (7 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/GetV1MessagesIdResponse
+  - term: PostV1MessagesIdRetriesRequest
+    definition: 'Object declared by the contract with fields: idempotency_key.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostV1MessagesIdRetriesRequest
+  - term: PostV1MessagesIdRetriesResponse
+    definition: 'Object declared by the contract with fields: id, type, format, status, can_retry.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostV1MessagesIdRetriesResponse
+  - term: GetV1TextSnippetsResponse
+    definition: 'Object declared by the contract with fields: snippets.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/GetV1TextSnippetsResponse
+  - term: PostV1TextSnippetsRequest
+    definition: 'Object declared by the contract with fields: title, text, position.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostV1TextSnippetsRequest
+  - term: PostV1TextSnippetsResponse
+    definition: 'Object declared by the contract with fields: id, title, text, position, created_at, updated_at.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PostV1TextSnippetsResponse
+  - term: GetV1TextSnippetsIdResponse
+    definition: 'Object declared by the contract with fields: id, title, text, position, created_at, updated_at.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/GetV1TextSnippetsIdResponse
+  - term: PatchV1TextSnippetsIdRequest
+    definition: 'Object declared by the contract with fields: title, text, position.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PatchV1TextSnippetsIdRequest
+  - term: PatchV1TextSnippetsIdResponse
+    definition: 'Object declared by the contract with fields: id, title, text, position, created_at, updated_at.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml#/components/schemas/PatchV1TextSnippetsIdResponse
+  - term: API
+    definition: 'Resource group in the contract; its operation GET /.well-known/oauth-authorization-server: authorization, token, revoke, and
+      registration endpoints'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml
+  - term: Api
+    definition: 'Resource group in the contract; its operation GET /api/v1/activity/unseen: GET /api/v1/activity/unseen'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml
+  - term: Oauth
+    definition: 'Resource group in the contract; its operation GET /oauth/authorize: Redirect the user to authorize the client'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml
+  - term: Activity
+    definition: 'Resource group in the contract; its operation GET /v1/activity/unseen: Unseen activity'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml
+  - term: Business Numbers
+    definition: 'Resource group in the contract; its operation GET /v1/business_numbers/{businessNumberId}/texting_settings: Returns the business
+      number''s outside-hours auto-reply settings.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml
+  - term: Calls
+    definition: 'Resource group in the contract; its operation GET /v1/calls: List recent calls'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml
+  - term: Company
+    definition: 'Resource group in the contract; its operation GET /v1/company: Returns the company associated with the authenticated API key
+      or OAuth token.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml
+  - term: Inbox
+    definition: 'Resource group in the contract; its operation GET /v1/inbox: List the inbox'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml
+  - term: Messages
+    definition: 'Resource group in the contract; its operation GET /v1/messages/{id}: Retrieve a text'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml
+  - term: Text Snippets
+    definition: 'Resource group in the contract; its operation GET /v1/text_snippets: List snippets'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/phone-inc-openapi-generated.yml
